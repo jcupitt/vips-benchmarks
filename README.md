@@ -4,7 +4,7 @@ The goal of this repo is to demonstrate performance of libvips library taken in 
 
 Now the accent on [ruby-vips](https://github.com/jcupitt/ruby-vips), Ruby bindings for libvips library, is made, but later the number of libraries (and platforms, I hope) will grow.
 
-== June 26, 2012 - STATUS
+== June 26, 2012 - Status
 The repo is a setup phase. Please do not expect all the code working stable and representative.
 
 == Copyright
