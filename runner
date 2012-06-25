@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bundle exec ruby/runner images/huge.jpg output/huge.jpg
