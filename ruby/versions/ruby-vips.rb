@@ -3,4 +3,6 @@
 require 'rubygems'
 require 'vips'
 
-puts "Ruby-vips #{VIPS::VERSION}"
+LIBVIPS_VERSION = %x[vips --version]
+
+puts "Ruby-vips #{VIPS::VERSION} built against #{LIBVIPS_VERSION}"
