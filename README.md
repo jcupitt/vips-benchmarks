@@ -6,7 +6,7 @@ Now the accent on [ruby-vips](https://github.com/jcupitt/ruby-vips), Ruby bindin
 
 ## June 26, 2012 - Status
 
-The repo is a setup phase. Only two scripts for ruby-vips and rmagick are available in _ruby/_. Please, do not expect all the code working stable and representative.
+The repo is a setup phase. Only two scripts for ruby-vips and rmagick are available in _ruby/_ folder. Please, do not expect all the code working stable and representative.
 
 ## Benchmarks for 2012.06.26
 
@@ -34,7 +34,7 @@ sys	  0m0.147s
 
 ## Performance test design
 
-The repo has folders ruby/, cpp/ and others, each having platform
+The repo has folders _ruby/_, _cpp/_ and others, each having platform
 specific scripts using various libraries available for this platform.
 
 Each script is coded to execute the same scenario (see Scenario
