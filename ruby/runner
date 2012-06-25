@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# echo "Ruby-vips"
+
+time ruby ruby/ruby-vips.rb images/huge.jpg images/huge_output.jpg
+
+echo
+# echo "RMagick"
+
+time ruby ruby/rmagick.rb images/huge.jpg images/huge_output.jpg
