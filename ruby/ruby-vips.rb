@@ -3,8 +3,6 @@
 require 'rubygems'
 require 'vips'
 
-puts "Ruby-vips #{VIPS::VERSION}"
-
 include VIPS
 
 im = Image.new(ARGV[0])

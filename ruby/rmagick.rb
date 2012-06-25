@@ -5,8 +5,6 @@ require 'RMagick'
 
 include Magick
 
-puts Magick::Long_version
-
 im = ImageList.new(ARGV[0])
 
 im = im.shave(100, 100)

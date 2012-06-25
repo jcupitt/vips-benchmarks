@@ -1,10 +1,17 @@
 #!/bin/sh
 
-# echo "Ruby-vips"
-
-time ruby ruby/ruby-vips.rb images/huge.jpg images/huge_output.jpg
+# I extracted versions output to they not affect performance results
 
 echo
-# echo "RMagick"
 
-time ruby ruby/rmagick.rb images/huge.jpg images/huge_output.jpg
+echo "=== Ruby platform ==="
+
+echo
+
+ruby ruby/versions/ruby-vips.rb
+time ruby ruby/ruby-vips.rb $1 $2
+
+echo
+
+ruby ruby/versions/rmagick.rb
+time ruby ruby/rmagick.rb $1 $2
