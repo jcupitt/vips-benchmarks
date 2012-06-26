@@ -1,3 +1,4 @@
 #!/bin/bash
 
 ruby/runner $1 $2
+image-magick/runner $1 $2

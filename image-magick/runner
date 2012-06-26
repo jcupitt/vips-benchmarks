@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo
+
+echo "==== ImageMagick ===="
+
+echo 
+
+convert --version
+time image-magick/image-magick $1 $2

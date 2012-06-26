@@ -11,25 +11,41 @@ The repo is a setup phase. Only two scripts for ruby-vips and rmagick are availa
 ## Benchmarks for 2012.06.26
 
 <pre>
-stanislaw@localhost ~/work/gems/vips-benchmarks $ ./runner images/huge.jpg output/huge.jpg 
+stanislaw@localhost ~/work/gems/vips-benchmarks $ ./runner images/huge.jpg 
+output/huge.jpg 
 
 ==== Ruby platform ====
 
-Ruby-vips 0.1.1
+Ruby-vips 0.1.1 built against vips-7.26.7-Tue May 22 02:54:27 EEST 2012
 
-real	0m1.806s
-user	0m3.284s
-sys	  0m0.075s
+real	0m1.777s
+user	0m3.259s
+sys	0m0.099s
 
-This is RMagick 2.13.1 ($Date: 2009/12/20 02:33:33 $) Copyright (C) 2009 by Timothy P. Hunter
+This is RMagick 2.13.1 ($Date: 2009/12/20 02:33:33 $) Copyright (C) 2009 by 
+Timothy P. Hunter
 Built with ImageMagick 6.7.7-5 2012-06-24 Q16 http://www.imagemagick.org
 Built for ruby 1.9.3
 Web page: http://rmagick.rubyforge.org
 Email: rmagick@rubyforge.org
 
-real	0m2.882s
-user	0m3.486s
-sys	  0m0.147s
+real	0m2.849s
+user	0m3.516s
+sys	0m0.171s
+
+
+==== ImageMagick ====
+
+Version: ImageMagick 6.7.7-5 2012-06-24 Q16 http://www.imagemagick.org
+Copyright: Copyright (C) 1999-2012 ImageMagick Studio LLC
+Features: OpenMP    
+
++ convert 'images/huge.jpg[2360x1720+100+100]' -resize 90x90% -convolve '-1, 
+-1, -1, -1, 16, -1, -1, -1, -1' output/huge.jpg
+
+real	0m2.288s
+user	0m5.393s
+sys	0m0.256s
 </pre>
 
 ## Performance test design
