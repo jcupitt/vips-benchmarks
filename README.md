@@ -60,17 +60,14 @@ specific scripts using various libraries available for this platform.
 Each script is coded to execute the same scenario (see Scenario
 section).
 
-Root folder contains _runner_ script, containing links to all _runner_
-scripts available in repo.
+Root folder contains _runner_ script, running
+scripts available in all folders.
 
 See "Do it yourself" section for how to run benchmark scenario.
 
 ## Scenario
 
-Test scenario was taken from [Speed and Memory
-use](http://www.vips.ecs.soton.ac.uk/index.php?title=Speed_and_Memory_Use)
-page from libvips [Home
-page](http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS)
+Test scenario was taken from [Speed and Memory use](http://www.vips.ecs.soton.ac.uk/index.php?title=Speed_and_Memory_Use) page from libvips [Home page](http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS)
 
 ## Do it yourself
 

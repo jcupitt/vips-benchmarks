@@ -86,6 +86,7 @@ programs="\
 "
 
 rm -f $tmp/log
+
 for prg in $programs; do
   echo -n timing $prg ...
   benchmark $prg >> $tmp/log
