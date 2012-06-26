@@ -2,8 +2,10 @@
 
 # show the platform
 uname -a
-vips --version
+./ruby/versions/ruby-vips.rb
 convert --version
+tifftopnm --version
+./ruby/versions/image_science.rb
 
 # how large an image do you want to process? 
 # sample2.v is 290x442 pixels ... replicate this many times horizontally and 
