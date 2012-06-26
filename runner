@@ -29,17 +29,24 @@ echo -n "test image is" `header -f width $tmp/t.v`
 echo " by" `header -f height $tmp/t.v` "pixels"
 
 echo making tiff and jpeg derivatives ...
-vips copy $tmp/t.v $tmp/t.tif
-vips copy $tmp/t.v $tmp/t_tiled.tif[tile]
-vips copy $tmp/t.v $tmp/t.jpg
+vips im_copy $tmp/t.v $tmp/t.tif
+vips im_copy $tmp/t.v $tmp/t_tiled.tif:,tile
+vips im_copy $tmp/t.v $tmp/t.jpg
+
+# we want to use the time program, not the one built into the shell
+time=$(which time)
+if [ $? != 0 ]; then
+  echo "unable to locate 'time' program"
+  exit 1
+fi
 
 # run three times, take the fastest real time
 function bestof3() {
   prg=$*
 
-  t1=$(/usr/bin/time -f %e $prg 2>&1)
-  t2=$(/usr/bin/time -f %e $prg 2>&1)
-  t3=$(/usr/bin/time -f %e $prg 2>&1)
+  t1=$($time -f %e $prg 2>&1)
+  t2=$($time -f %e $prg 2>&1)
+  t3=$($time -f %e $prg 2>&1)
 
   if [[ $t2 < $t1 ]]; then
 	  t1=$t2
