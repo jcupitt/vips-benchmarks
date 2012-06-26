@@ -1,51 +1,43 @@
 # vips-benchmarks
 
-The goal of this repo is to demonstrate performance of libvips library taken in comparison with other image processing systems.
+The goal of this repo is to demonstrate performance of libvips library
+taken in comparison with other image processing systems.
 
-Now the accent on [ruby-vips](https://github.com/jcupitt/ruby-vips), Ruby bindings for libvips library, is made, but later the number of libraries (and platforms, I hope) will grow.
+Now the accent on [ruby-vips](https://github.com/jcupitt/ruby-vips), Ruby
+bindings for libvips library, is made, but later the number of libraries
+(and platforms, I hope) will grow.
 
 ## June 26, 2012 - Status
 
-The repo is a setup phase. Only two scripts for ruby-vips and rmagick are available in _ruby/_ folder. Please, do not expect all the code working stable and representative.
+The repo is a setup phase. Only two scripts for ruby-vips and rmagick are
+available in _ruby/_ folder. Please, do not expect all the code working
+stable and representative.
 
 ## Benchmarks for 2012.06.26
 
 <pre>
-stanislaw@localhost ~/work/gems/vips-benchmarks $ ./runner images/huge.jpg 
-output/huge.jpg 
+Core(TM)2 Duo CPU     P7550  @ 2.26GHz
+Linux kiwi 3.2.0-25-generic #40-Ubuntu SMP Wed May 23 20:30:51 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
+vips-7.29.0-Sat Jun 23 21:51:53 BST 2012
+Version: ImageMagick 6.6.9-7 2012-04-30 Q16 http://www.imagemagick.org
+Copyright: Copyright (C) 1999-2011 ImageMagick Studio LLC
+Features: OpenMP   
 
-==== Ruby platform ====
-
-Ruby-vips 0.1.1 built against vips-7.26.7-Tue May 22 02:54:27 EEST 2012
-
-real	0m1.777s
-user	0m3.259s
-sys	0m0.099s
-
-This is RMagick 2.13.1 ($Date: 2009/12/20 02:33:33 $) Copyright (C) 2009 by 
-Timothy P. Hunter
-Built with ImageMagick 6.7.7-5 2012-06-24 Q16 http://www.imagemagick.org
-Built for ruby 1.9.3
-Web page: http://rmagick.rubyforge.org
-Email: rmagick@rubyforge.org
-
-real	0m2.849s
-user	0m3.516s
-sys	0m0.171s
-
-
-==== ImageMagick ====
-
-Version: ImageMagick 6.7.7-5 2012-06-24 Q16 http://www.imagemagick.org
-Copyright: Copyright (C) 1999-2012 ImageMagick Studio LLC
-Features: OpenMP    
-
-+ convert 'images/huge.jpg[2360x1720+100+100]' -resize 90x90% -convolve '-1, 
--1, -1, -1, 16, -1, -1, -1, -1' output/huge.jpg
-
-real	0m2.288s
-user	0m5.393s
-sys	0m0.256s
+building test image ...
+tile=10
+test image is 2900 by 4420 pixels
+making tiff and jpeg derivatives ...
+testing ruby/ruby-vips.rb ... done
+testing ruby/rmagick.rb ... done
+testing image-magick/image-magick ... done
+testing ruby/image_sci.rb ... done
+testing netpbm/netpbm.sh ... done
+benchmark	tiff	jpeg
+ruby-vips.rb	0.45	0.57	
+rmagick.rb	1.68	1.88	
+netpbm.sh	2.17	1.62	
+image-magick	2.89	3.04	
+image_sci.rb	3.21	2.91	
 </pre>
 
 ## Performance test design

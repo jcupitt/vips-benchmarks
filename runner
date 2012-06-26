@@ -30,7 +30,6 @@ echo " by" `header -f height $tmp/t.v` "pixels"
 
 echo making tiff and jpeg derivatives ...
 vips im_copy $tmp/t.v $tmp/t.tif
-vips im_copy $tmp/t.v $tmp/t_tiled.tif:,tile
 vips im_copy $tmp/t.v $tmp/t.jpg
 
 # we want to use the time program, not the one built into the shell
@@ -60,18 +59,30 @@ function bestof3() {
 # run for tif and jpg sources
 function benchmark() {
   prg=$1
-  echo -n -e "$(basename $prg)\t\t"
-  echo -n -e "$(bestof3 $prg $tmp/t.tif $tmp/t2.tif)\t\t"
-  echo -n -e "$(bestof3 $prg $tmp/t_tiled.tif $tmp/t2_tiled.tif)\t\t"
-  echo -n -e "$(bestof3 $prg $tmp/t.jpg $tmp/t2.jpg)\t\t"
+  echo -n -e "$(basename $prg)\t"
+  echo -n -e "$(bestof3 $prg $tmp/t.tif $tmp/t2.tif)\t"
+  echo -n -e "$(bestof3 $prg $tmp/t.jpg $tmp/t2.jpg)\t"
 
   echo
 }
 
-echo -e "benchmark\t\tstrip tif\ttiled tiff\tjpeg"
-benchmark ruby/ruby-vips.rb 
-benchmark ruby/rmagick.rb 
-benchmark image-magick/image-magick 
-benchmark ruby/image_science.rb 
+# tests we run
+programs="\
+  ruby/ruby-vips.rb \
+  ruby/rmagick.rb \
+  image-magick/image-magick \
+  ruby/image_sci.rb \
+  netpbm/netpbm.sh \
+"
 
-rm -rf $tmp
+rm -f $tmp/log
+for prg in $programs; do
+  echo -n testing $prg ...
+  benchmark $prg >> $tmp/log
+  echo " done"
+done
+
+echo -e "benchmark\ttiff\tjpeg"
+sort -k 2 $tmp/log 
+
+# rm -rf $tmp
