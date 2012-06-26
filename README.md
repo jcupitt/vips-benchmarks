@@ -17,7 +17,8 @@ stable and representative.
 
 <pre>
 Core(TM)2 Duo CPU     P7550  @ 2.26GHz
-Linux kiwi 3.2.0-25-generic #40-Ubuntu SMP Wed May 23 20:30:51 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
+Linux kiwi 3.2.0-25-generic #40-Ubuntu SMP Wed May 23 20:30:51 UTC 2012 x86_64
+x86_64 x86_64 GNU/Linux
 vips-7.29.0-Sat Jun 23 21:51:53 BST 2012
 Version: ImageMagick 6.6.9-7 2012-04-30 Q16 http://www.imagemagick.org
 Copyright: Copyright (C) 1999-2011 ImageMagick Studio LLC
@@ -27,17 +28,28 @@ building test image ...
 tile=10
 test image is 2900 by 4420 pixels
 making tiff and jpeg derivatives ...
-testing ruby/ruby-vips.rb ... done
-testing ruby/rmagick.rb ... done
-testing image-magick/image-magick ... done
-testing ruby/image_sci.rb ... done
-testing netpbm/netpbm.sh ... done
+timing ruby/ruby-vips.rb ... done
+timing ruby/rmagick.rb ... done
+timing image-magick/image-magick ... done
+timing ruby/image_sci.rb ... done
+timing netpbm/netpbm.sh ... done
+measuring memuse for ruby/ruby-vips.rb ... done
+measuring memuse for ruby/rmagick.rb ... done
+measuring memuse for ruby/image_sci.rb ... done
+
+real time in seconds, fastest of three runs
 benchmark       tiff    jpeg
-ruby-vips.rb    0.45    0.57    
-rmagick.rb      1.68    1.88    
-netpbm.sh       2.17    1.62    
-image-magick    2.89    3.04    
-image_sci.rb    3.21    2.91    
+ruby-vips.rb    0.45    0.56    
+rmagick.rb      1.69    1.90    
+netpbm.sh       1.74    1.63    
+image-magick    2.87    3.02    
+image_sci.rb    3.19    2.90    
+
+peak memory use in kilobytes
+benchmark       peak RSS
+ruby-vips.rb    160400
+image_sci.rb    546992
+rmagick.rb      1370064
 </pre>
 
 ## Performance test design

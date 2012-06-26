@@ -56,6 +56,16 @@ function bestof3() {
   echo $t1
 }
 
+# find peak RSS
+function maxmem() {
+  prg=$*
+
+  m=$($time -f %M $prg 2>&1)
+
+  echo -n -e "$(basename $1)\t"
+  echo $m
+}
+
 # run for tif and jpg sources
 function benchmark() {
   prg=$1
@@ -77,12 +87,34 @@ programs="\
 
 rm -f $tmp/log
 for prg in $programs; do
-  echo -n testing $prg ...
+  echo -n timing $prg ...
   benchmark $prg >> $tmp/log
   echo " done"
 done
 
-echo -e "benchmark\ttiff\tjpeg"
-sort -k 2 $tmp/log 
+# we can't test all of them for max memory, only ones which don't fork
+# subprocesses
+programs="\
+  ruby/ruby-vips.rb \
+  ruby/rmagick.rb \
+  ruby/image_sci.rb \
+"
 
-# rm -rf $tmp
+rm -f $tmp/memlog
+for prg in $programs; do
+  echo -n measuring memuse for $prg ...
+  maxmem $prg $tmp/t.tif $tmp/t2.tif >> $tmp/memlog
+  echo " done"
+done
+
+echo 
+echo real time in seconds, fastest of three runs
+echo -e "benchmark\ttiff\tjpeg"
+sort -g -k 2 $tmp/log 
+
+echo 
+echo peak memory use in kilobytes
+echo -e "benchmark\tpeak RSS"
+sort -g -k 2 $tmp/memlog 
+
+rm -rf $tmp
