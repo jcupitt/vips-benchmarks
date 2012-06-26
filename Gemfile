@@ -7,6 +7,7 @@ source "http://rubygems.org"
 # Include everything needed to run rake, tests, features, etc.
 gem 'ruby-vips'
 gem 'rmagick'
+gem 'image_science'
 
 group :development do
   # gem "rspec", "~> 2.8.0"

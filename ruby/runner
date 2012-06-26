@@ -15,3 +15,8 @@ echo
 
 ruby ruby/versions/rmagick.rb
 time ruby ruby/rmagick.rb $1 $2
+
+echo
+
+# ruby ruby/versions/image_science.rb
+# time ruby ruby/image_science.rb $1 $2
