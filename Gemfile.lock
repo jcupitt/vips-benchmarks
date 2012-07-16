@@ -1,7 +1,12 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    RubyInline (3.11.3)
+      ZenTest (~> 4.3)
+    ZenTest (4.8.1)
     git (1.2.5)
+    image_science (1.2.3)
+      RubyInline (~> 3.9)
     jeweler (1.8.4)
       bundler (~> 1.0)
       git (>= 1.2.5)
@@ -12,13 +17,14 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     rmagick (2.13.1)
-    ruby-vips (0.1.1)
+    ruby-vips (0.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bundler
+  image_science
   jeweler (~> 1.8.3)
   rmagick
   ruby-vips
