@@ -5,7 +5,15 @@ require 'vips'
 
 include VIPS
 
-im = Image.new(ARGV[0])
+filename = ARGV[0]
+
+if filename.end_with? ".jpg"
+    im = Image.jpeg filename, :sequential => true
+elsif filename.end_with? ".tif"
+    im = Image.tiff filename, :sequential => true
+else
+    im = Image.new filename
+end
 
 im = im.extract_area(100, 100, im.x_size - 200, im.y_size - 200)
 im = im.affinei(:bilinear, 0.9, 0, 0, 0.9, 0, 0)

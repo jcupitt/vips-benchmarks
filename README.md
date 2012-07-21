@@ -7,23 +7,27 @@ Now the accent on [ruby-vips](https://github.com/jcupitt/ruby-vips), Ruby
 bindings for libvips library, is made, but later the number of libraries
 (and platforms, I hope) will grow.
 
-## June 26, 2012 - Status
+## July 20, 2012 - Status
 
 The repo is a setup phase. More tests are being added. 
-Please do not expect all the code to working,
-stable and representative.
+Please do not expect all the code to working, stable and representative.
 
-## Benchmarks for 2012.06.26
+## Benchmarks for 2012.07.20
 
-<pre>
-Core(TM)2 Duo CPU     P7550  @ 2.26GHz
-Linux kiwi 3.2.0-25-generic #40-Ubuntu SMP Wed May 23 20:30:51 UTC 2012 x86_64
+```bash
+$ ./runner 
+Linux kiwi 3.2.0-26-generic #41-Ubuntu SMP Thu Jun 14 17:49:24 UTC 2012 x86_64
 x86_64 x86_64 GNU/Linux
-vips-7.29.0-Sat Jun 23 21:51:53 BST 2012
+Ruby-vips 0.3.0 built against vips-7.30.0-Fri Jul 20 15:26:33 BST 2012
 Version: ImageMagick 6.6.9-7 2012-04-30 Q16 http://www.imagemagick.org
 Copyright: Copyright (C) 1999-2011 ImageMagick Studio LLC
 Features: OpenMP   
 
+tifftopnm: Using libpbm from Netpbm Version: Netpbm 10.0
+tifftopnm: BSD defined
+tifftopnm: RGB_ENV='RGBDEF'
+tifftopnm: RGBENV= 'RGBDEF' (env vbl is unset)
+Image Science 1.2.3
 building test image ...
 tile=10
 test image is 2900 by 4420 pixels
@@ -38,19 +42,19 @@ measuring memuse for ruby/rmagick.rb ... done
 measuring memuse for ruby/image_sci.rb ... done
 
 real time in seconds, fastest of three runs
-benchmark       tiff    jpeg
-ruby-vips.rb    0.45    0.56    
-rmagick.rb      1.69    1.90    
-netpbm.sh       1.74    1.63    
-image-magick    2.87    3.02    
-image_sci.rb    3.19    2.90    
+benchmark	tiff	jpeg
+ruby-vips.rb	0.48	0.53	
+rmagick.rb	1.72	1.92	
+netpbm.sh	1.78	1.67	
+image-magick	2.87	2.98	
+image_sci.rb	3.20	2.91	
 
 peak memory use in kilobytes
-benchmark       peak RSS
-ruby-vips.rb    160400
-image_sci.rb    546992
-rmagick.rb      1370064
-</pre>
+benchmark	peak RSS
+ruby-vips.rb	160704
+image_sci.rb	550464
+rmagick.rb	1370496
+```
 
 ## Performance test design
 
