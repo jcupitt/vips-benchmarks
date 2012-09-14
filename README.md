@@ -15,11 +15,11 @@ Please do not expect all the code to working, stable and representative.
 ## Benchmarks for 2012.07.20
 
 ```bash
-$ ./runner 
-Linux kiwi 3.2.0-26-generic #41-Ubuntu SMP Thu Jun 14 17:49:24 UTC 2012 x86_64
+$ bundle exec ./runner 
+Linux kiwi 3.2.0-30-generic #48-Ubuntu SMP Fri Aug 24 16:52:48 UTC 2012 x86_64
 x86_64 x86_64 GNU/Linux
-Ruby-vips 0.3.0 built against vips-7.30.0-Fri Jul 20 15:26:33 BST 2012
-Version: ImageMagick 6.6.9-7 2012-04-30 Q16 http://www.imagemagick.org
+Ruby-vips 0.3.4 built against vips-7.30.3-Thu Sep 13 16:46:22 BST 2012
+Version: ImageMagick 6.6.9-7 2012-08-17 Q16 http://www.imagemagick.org
 Copyright: Copyright (C) 1999-2011 ImageMagick Studio LLC
 Features: OpenMP   
 
@@ -43,17 +43,17 @@ measuring memuse for ruby/image_sci.rb ... done
 
 real time in seconds, fastest of three runs
 benchmark	tiff	jpeg
-ruby-vips.rb	0.48	0.53	
-rmagick.rb	1.72	1.92	
-netpbm.sh	1.78	1.67	
-image-magick	2.87	2.98	
-image_sci.rb	3.20	2.91	
+ruby-vips.rb	0.64	0.68	
+rmagick.rb	1.90	2.11	
+netpbm.sh	2.07	1.66	
+image-magick	2.86	3.00	
+image_sci.rb	3.39	3.08	
 
 peak memory use in kilobytes
 benchmark	peak RSS
-ruby-vips.rb	160704
-image_sci.rb	550464
-rmagick.rb	1370496
+ruby-vips.rb	134768
+image_sci.rb	585840
+rmagick.rb	1407728
 ```
 
 ## Performance test design
