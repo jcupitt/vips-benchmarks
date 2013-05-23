@@ -1,16 +1,10 @@
 # vips-benchmarks
 
-The goal of this repo is to demonstrate the performance of the libvips library
-in comparison to other image processing systems.
+The goal of this repo is to demonstrate the performance of the libvips library in comparison to other image processing systems.
 
-Now the accent on [ruby-vips](https://github.com/jcupitt/ruby-vips), Ruby
-bindings for libvips library, is made, but later the number of libraries
-(and platforms, I hope) will grow.
+Now the accent on [ruby-vips](https://github.com/jcupitt/ruby-vips), Ruby bindings for libvips library, is made, but later the number of libraries (and platforms, I hope) will grow.
 
-## July 20, 2012 - Status
-
-The repo is a setup phase. More tests are being added. 
-Please do not expect all the code to working, stable and representative.
+Last update: July, 20, 2012
 
 ## Benchmarks for 2012.07.20
 
