@@ -2,9 +2,9 @@
 
 The goal of this repo is to demonstrate the performance of the libvips library in comparison to other image processing systems. Currently an accent on [ruby-vips](https://github.com/jcupitt/ruby-vips): Ruby bindings for libvips library, is made.
 
-Be sure to checkout official benchmarks page: [VIPS - Speed and Memory Use](http://www.vips.ecs.soton.ac.uk/index.php?title=Speed_and_Memory_Use) for complete demonstration of the performance and memory usage characteristics of VIPS library.
+Be sure to check out the official benchmarks page: [VIPS - Speed and Memory Use](http://www.vips.ecs.soton.ac.uk/index.php?title=Speed_and_Memory_Use) for complete demonstration of performance and memory usage characteristics of VIPS library.
 
-Last update: June 20, 2014
+Last update: June 6, 2014.
 
 ## Benchmarks
 
