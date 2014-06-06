@@ -4,7 +4,6 @@
 uname -a
 ./ruby/versions/ruby-vips.rb
 convert --version
-tifftopnm --version
 ./ruby/versions/image_science.rb
 
 # how large an image do you want to process? 
@@ -35,7 +34,7 @@ vips im_copy $tmp/t.v $tmp/t.tif
 vips im_copy $tmp/t.v $tmp/t.jpg
 
 # we want to use the time program, not the one built into the shell
-time=$(which time)
+time=/usr/local/bin/time
 if [ $? != 0 ]; then
   echo "unable to locate 'time' program"
   exit 1
@@ -83,8 +82,7 @@ programs="\
   ruby/ruby-vips.rb \
   ruby/rmagick.rb \
   image-magick/image-magick \
-  ruby/image_sci.rb \
-  netpbm/netpbm.sh \
+  ruby/image_sci.rb
 "
 
 rm -f $tmp/log

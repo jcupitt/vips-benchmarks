@@ -8,6 +8,7 @@ source "http://rubygems.org"
 gem 'ruby-vips'
 gem 'rmagick'
 gem 'image_science'
+gem 'free-image'
 
 group :development do
   # gem "rspec", "~> 2.8.0"
