@@ -114,7 +114,7 @@ echo -e "benchmark\ttiff\tjpeg"
 sort -g -k 2 $tmp/log 
 
 echo 
-echo peak memory use in kilobytes
+echo peak memory use in bytes
 echo -e "benchmark\tpeak RSS"
 sort -g -k 2 $tmp/memlog 
 
