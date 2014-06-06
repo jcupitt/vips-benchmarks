@@ -1,27 +1,26 @@
 # vips-benchmarks
 
-The goal of this repo is to demonstrate the performance of the libvips library in comparison to other image processing systems.
+The goal of this repo is to demonstrate the performance of the libvips library in comparison to other image processing systems. Currently an accent on [ruby-vips](https://github.com/jcupitt/ruby-vips): Ruby bindings for libvips library, is made.
 
-Now the accent on [ruby-vips](https://github.com/jcupitt/ruby-vips), Ruby bindings for libvips library, is made, but later the number of libraries (and platforms, I hope) will grow.
+Be sure to checkout official benchmarks page: [VIPS - Speed and Memory Use](http://www.vips.ecs.soton.ac.uk/index.php?title=Speed_and_Memory_Use) for complete demonstration of the performance and memory usage characteristics of VIPS library.
 
-Last update: July, 20, 2012
+Last update: June 20, 2014
 
-## Benchmarks for 2012.07.20
+## Benchmarks
 
 ```bash
 $ bundle exec ./runner 
-Linux kiwi 3.2.0-30-generic #48-Ubuntu SMP Fri Aug 24 16:52:48 UTC 2012 x86_64
-x86_64 x86_64 GNU/Linux
-Ruby-vips 0.3.4 built against vips-7.30.3-Thu Sep 13 16:46:22 BST 2012
-Version: ImageMagick 6.6.9-7 2012-08-17 Q16 http://www.imagemagick.org
-Copyright: Copyright (C) 1999-2011 ImageMagick Studio LLC
-Features: OpenMP   
+Darwin 41.88.168.192.in-addr.arpa 13.2.0 Darwin Kernel Version 13.2.0: Thu Apr 17 23:03:13 PDT 2014; root:xnu-2422.100.13~1/RELEASE_X86_64 x86_64
 
-tifftopnm: Using libpbm from Netpbm Version: Netpbm 10.0
-tifftopnm: BSD defined
-tifftopnm: RGB_ENV='RGBDEF'
-tifftopnm: RGBENV= 'RGBDEF' (env vbl is unset)
-Image Science 1.2.3
+Ruby-vips 0.3.8 built against vips-7.38.5-Fri Jun  6 13:56:58 MSK 2014
+
+Version: ImageMagick 6.8.8-9 Q16 x86_64 2014-06-06 http://www.imagemagick.org
+Copyright: Copyright (C) 1999-2014 ImageMagick Studio LLC
+Features: DPC Modules
+Delegates: bzlib fftw freetype jng jpeg lcms ltdl png tiff xml zlib
+
+Image Science 1.2.6
+
 building test image ...
 tile=10
 test image is 2900 by 4420 pixels
@@ -30,24 +29,22 @@ timing ruby/ruby-vips.rb ... done
 timing ruby/rmagick.rb ... done
 timing image-magick/image-magick ... done
 timing ruby/image_sci.rb ... done
-timing netpbm/netpbm.sh ... done
 measuring memuse for ruby/ruby-vips.rb ... done
 measuring memuse for ruby/rmagick.rb ... done
 measuring memuse for ruby/image_sci.rb ... done
 
 real time in seconds, fastest of three runs
 benchmark	tiff	jpeg
-ruby-vips.rb	0.64	0.68	
-rmagick.rb	1.90	2.11	
-netpbm.sh	2.07	1.66	
-image-magick	2.86	3.00	
-image_sci.rb	3.39	3.08	
+ruby-vips.rb	1.42	1.62
+image_sci.rb	1.47	1.70
+rmagick.rb	1.63	1.87
+image-magick	1.68	2.01
 
-peak memory use in kilobytes
+peak memory use in bytes
 benchmark	peak RSS
-ruby-vips.rb	134768
-image_sci.rb	585840
-rmagick.rb	1407728
+ruby-vips.rb	184926208
+image_sci.rb	629784576
+rmagick.rb	1465909248
 ```
 
 ## Performance test design
@@ -55,8 +52,7 @@ rmagick.rb	1407728
 The repo has folders _ruby/_, _cpp/_ and others, each having platform
 specific scripts using various libraries available for this platform.
 
-Each script is coded to execute the same scenario (see Scenario
-section).
+Each script is coded to execute the same scenario (see Scenario section).
 
 Root folder contains _runner_ script, running
 scripts available in all folders.
@@ -74,15 +70,12 @@ git clone https://github.com/stanislaw/vips-benchmarks
 
 cd vips-benchmarks
 
-./runner 
+bundle update
+
+bundle exec ./runner 
 ```
-
-## TODO
-
-* Scenario: more solid!
-* More libraries for ruby
-* More platforms (suggestions are welcome!)
 
 ## Copyright
 
-Copyright (c) 2012 Stanislaw Pankevich and John Cupitt.
+Copyright (c) 2012, 2014 Stanislaw Pankevich and John Cupitt.
+
