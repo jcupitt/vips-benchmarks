@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'RMagick'
+require 'rmagick'
 
 include Magick
 

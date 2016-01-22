@@ -21,20 +21,20 @@ sample=images/sample2.v
 
 echo building test image ...
 echo "tile=$tile"
-vips im_replicate $sample $tmp/t.v $tile $tile
+vips replicate $sample $tmp/t.v $tile $tile
 if [ $? != 0 ]; then
   echo "build of test image failed -- out of disc space?"
   exit 1
 fi
-echo -n "test image is" `header -f width $tmp/t.v` 
-echo " by" `header -f height $tmp/t.v` "pixels"
+echo -n "test image is" $(vipsheader -f width $tmp/t.v)
+echo " by" $(vipsheader -f height $tmp/t.v) "pixels"
 
 echo making tiff and jpeg derivatives ...
-vips im_copy $tmp/t.v $tmp/t.tif
-vips im_copy $tmp/t.v $tmp/t.jpg
+vips copy $tmp/t.v $tmp/t.tif
+vips copy $tmp/t.v $tmp/t.jpg
 
 # we want to use the time program, not the one built into the shell
-time=/usr/local/bin/time
+time=$(which time)
 if [ $? != 0 ]; then
   echo "unable to locate 'time' program"
   exit 1
@@ -80,6 +80,7 @@ function benchmark() {
 # tests we run
 programs="\
   ruby/ruby-vips.rb \
+  ruby/ruby-vips8.rb \
   ruby/rmagick.rb \
   image-magick/image-magick \
   ruby/image_sci.rb
@@ -97,6 +98,7 @@ done
 # subprocesses
 programs="\
   ruby/ruby-vips.rb \
+  ruby/ruby-vips8.rb \
   ruby/rmagick.rb \
   ruby/image_sci.rb \
 "

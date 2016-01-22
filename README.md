@@ -9,42 +9,45 @@ Last update: June 6, 2014.
 ## Benchmarks
 
 ```bash
-$ bundle exec ./runner 
-Darwin 41.88.168.192.in-addr.arpa 13.2.0 Darwin Kernel Version 13.2.0: Thu Apr 17 23:03:13 PDT 2014; root:xnu-2422.100.13~1/RELEASE_X86_64 x86_64
-
-Ruby-vips 0.3.8 built against vips-7.38.5-Fri Jun  6 13:56:58 MSK 2014
-
-Version: ImageMagick 6.8.8-9 Q16 x86_64 2014-06-06 http://www.imagemagick.org
+$ ./runner 
+Linux kiwi 4.2.0-23-generic #28-Ubuntu SMP Sun Dec 27 17:47:31 UTC 2015 x86_64
+x86_64 x86_64 GNU/Linux
+Ruby-vips 0.3.13 built against vips-8.2.2-Fri Jan 22 16:28:35 GMT 2016
+Version: ImageMagick 6.8.9-9 Q16 x86_64 2015-08-06 http://www.imagemagick.org
 Copyright: Copyright (C) 1999-2014 ImageMagick Studio LLC
-Features: DPC Modules
-Delegates: bzlib fftw freetype jng jpeg lcms ltdl png tiff xml zlib
+Features: DPC Modules OpenMP
+Delegates: bzlib djvu fftw fontconfig freetype jbig jng jpeg lcms lqr ltdl
+lzma openexr pangocairo png tiff wmf x xml zlib
 
 Image Science 1.2.6
-
 building test image ...
 tile=10
 test image is 2900 by 4420 pixels
 making tiff and jpeg derivatives ...
 timing ruby/ruby-vips.rb ... done
+timing ruby/ruby-vips8.rb ... done
 timing ruby/rmagick.rb ... done
 timing image-magick/image-magick ... done
 timing ruby/image_sci.rb ... done
 measuring memuse for ruby/ruby-vips.rb ... done
+measuring memuse for ruby/ruby-vips8.rb ... done
 measuring memuse for ruby/rmagick.rb ... done
 measuring memuse for ruby/image_sci.rb ... done
 
 real time in seconds, fastest of three runs
 benchmark	tiff	jpeg
-ruby-vips.rb	1.42	1.62
-image_sci.rb	1.47	1.70
-rmagick.rb	1.63	1.87
-image-magick	1.68	2.01
+ruby-vips.rb	0.25	0.33	
+ruby-vips8.rb	0.45	0.52	
+image-magick	0.86	1.03	
+rmagick.rb	0.92	1.01	
+image_sci.rb	1.11	0.88	
 
 peak memory use in bytes
 benchmark	peak RSS
-ruby-vips.rb	184926208
-image_sci.rb	629784576
-rmagick.rb	1465909248
+ruby-vips.rb	52828
+ruby-vips8.rb	60464
+image_sci.rb	146228
+rmagick.rb	350136
 ```
 
 ## Performance test design
