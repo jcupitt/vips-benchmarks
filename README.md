@@ -4,7 +4,7 @@ The goal of this repo is to demonstrate the performance of the libvips library i
 
 Be sure to check out the official benchmarks page: [VIPS - Speed and Memory Use](http://www.vips.ecs.soton.ac.uk/index.php?title=Speed_and_Memory_Use) for complete demonstration of performance and memory usage characteristics of VIPS library.
 
-Last update: June 6, 2014.
+Last update: Jan 24, 2016
 
 ## Benchmarks
 
@@ -36,19 +36,23 @@ measuring memuse for ruby/image_sci.rb ... done
 
 real time in seconds, fastest of three runs
 benchmark	tiff	jpeg
-ruby-vips.rb	0.25	0.33	
-ruby-vips8.rb	0.45	0.52	
-image-magick	0.86	1.03	
-rmagick.rb	0.92	1.01	
-image_sci.rb	1.11	0.88	
+ruby-vips.rb	2.77	2.98	
+ruby-vips8.rb	2.97	3.29	
+image-magick	8.18	9.71	
+rmagick.rb	9.22	10.06	
+image_sci.rb	9.39	7.20	
 
 peak memory use in bytes
 benchmark	peak RSS
-ruby-vips.rb	52828
-ruby-vips8.rb	60464
-image_sci.rb	146228
-rmagick.rb	350136
+ruby-vips.rb	107340
+ruby-vips8.rb	117604
+image_sci.rb	146536
+rmagick.rb	3352020
 ```
+
+`rub-vips8` is a dynamic binding written entirely in Ruby. It's slightly
+slower than the old hand-written-in-C `ruby-vips` binding, but much more
+portable and much more powerful.
 
 ## Performance test design
 
@@ -64,7 +68,11 @@ See "Do it yourself" section for how to run benchmark scenario.
 
 ## Scenario
 
-Test scenario was taken from [Speed and Memory use](http://www.vips.ecs.soton.ac.uk/index.php?title=Speed_and_Memory_Use) page from libvips [Home page](http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS)
+Test scenario was taken from [Speed and Memory
+use](http://www.vips.ecs.soton.ac.uk/index.php?title=Speed_and_Memory_Use)
+page from libvips [Home
+page](http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS). The test is
+repeated 10 times. 
 
 ## Do it yourself
 
