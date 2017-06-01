@@ -1,30 +1,17 @@
 #!/usr/bin/env ruby
 
-require 'rubygems'
 require 'vips'
 
-include VIPS
-
 10.times do
-    filename = ARGV[0]
+    im = Vips::Image.new_from_file ARGV[0], :access => :sequential
 
-    if filename.end_with? ".jpg"
-        im = Image.jpeg filename, :sequential => true
-    elsif filename.end_with? ".tif"
-        im = Image.tiff filename, :sequential => true
-    else
-        im = Image.new filename
-    end
+    im = im.crop 100, 100, im.width - 200, im.height - 200
+    im = im.similarity :scale => 0.9
+    mask = Vips::Image.new_from_array [
+        [-1, -1,  -1], 
+        [-1,  16, -1],
+        [-1, -1,  -1]], 8
+    im = im.conv(mask)
 
-    im = im.extract_area(100, 100, im.x_size - 200, im.y_size - 200)
-    im = im.affinei(:bilinear, 0.9, 0, 0, 0.9, 0, 0)
-    mask = [
-        [-1, -1,  -1],
-        [-1,  16, -1,],
-        [-1, -1,  -1]
-    ]
-    m = Mask.new mask, 8, 0 
-    im = im.conv(m)
-
-    im.write(ARGV[1])
+    im.write_to_file ARGV[1]
 end

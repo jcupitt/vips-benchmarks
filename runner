@@ -80,10 +80,8 @@ function benchmark() {
 # tests we run
 programs="\
   ruby/ruby-vips.rb \
-  ruby/ruby-vips8.rb \
   ruby/rmagick.rb \
   image-magick/image-magick \
-  ruby/image_sci.rb
 "
 
 rm -f $tmp/log
@@ -98,9 +96,7 @@ done
 # subprocesses
 programs="\
   ruby/ruby-vips.rb \
-  ruby/ruby-vips8.rb \
   ruby/rmagick.rb \
-  ruby/image_sci.rb \
 "
 
 rm -f $tmp/memlog
