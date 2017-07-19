@@ -10,43 +10,42 @@ Use](https://github.com/jcupitt/libvips/wiki/Speed-and-memory-use)
 for complete demonstration of performance and memory usage characteristics
 of VIPS library.
 
-Last update: June 6, 2016
+Last update: July 19, 2017
 
 ## Benchmarks
 
 ```bash
 $ ./runner 
-Linux kiwi 4.2.0-23-generic #28-Ubuntu SMP Sun Dec 27 17:47:31 UTC 2015 x86_64
-x86_64 x86_64 GNU/Linux
-Ruby-vips 0.3.13 built against vips-8.2.2-Fri Jan 22 16:28:35 GMT 2016
-Version: ImageMagick 6.8.9-9 Q16 x86_64 2015-08-06 http://www.imagemagick.org
-Copyright: Copyright (C) 1999-2014 ImageMagick Studio LLC
-Features: DPC Modules OpenMP
-Delegates: bzlib djvu fftw fontconfig freetype jbig jng jpeg lcms lqr ltdl
-lzma openexr pangocairo png tiff wmf x xml zlib
-
-Image Science 1.2.6
+Linux mm-jcupitt5 4.10.0-28-generic #32-Ubuntu SMP Fri Jun 30 05:32:18 UTC 2017
+x86_64 x86_64 x86_64 GNU/Linux
+Ruby-vips 2.0.0 built against vips-8.5.7-Tue Jul 18 12:51:34 BST 2017
+Version: ImageMagick 6.9.7-4 Q16 x86_64 20170114 http://www.imagemagick.org
+Copyright: © 1999-2017 ImageMagick Studio LLC
+License: http://www.imagemagick.org/script/license.php
+Features: Cipher DPC Modules OpenMP 
+Delegates (built-in): bzlib djvu fftw fontconfig freetype jbig jng jpeg lcms
+lqr ltdl lzma openexr pangocairo png tiff wmf x xml zlib
+Image Science 1.3.0
 building test image ...
-tile=10
-test image is 2900 by 4420 pixels
+tile=5
+test image is 1450 by 2210 pixels
 making tiff and jpeg derivatives ...
 timing ruby/ruby-vips.rb ... done
 timing ruby/rmagick.rb ... done
 timing image-magick/image-magick ... done
 measuring memuse for ruby/ruby-vips.rb ... done
-measuring memuse for ruby/ruby-vips8.rb ... done
 measuring memuse for ruby/rmagick.rb ... done
 
-real time in seconds, fastest of three runs
+real time in seconds, fastest of five runs
 benchmark	tiff	jpeg
-ruby-vips.rb	4.87	4.05
-image-magick	8.27	10.01
-rmagick.rb	10.24	10.53
+ruby-vips.rb	0.80	0.52	
+image-magick	1.17	1.73	
+rmagick.rb	1.37	1.62	
 
 peak memory use in bytes
 benchmark	peak RSS
-ruby-vips.rb	136088
-rmagick.rb	3351072
+ruby-vips.rb	62268
+rmagick.rb	787720
 ```
 
 ## Performance test design
@@ -64,15 +63,15 @@ See "Do it yourself" section for how to run benchmark scenario.
 ## Scenario
 
 Test scenario was taken from [Speed and Memory
-use](http://www.vips.ecs.soton.ac.uk/index.php?title=Speed_and_Memory_Use)
+use](https://github.com/jcupitt/libvips/wiki/Speed-and-memory-use)
 page from libvips [Home
-page](http://www.vips.ecs.soton.ac.uk/index.php?title=VIPS). The test is
+page](https://jcupitt.github.io/libvips/). The test is
 repeated 10 times. 
 
 ## Do it yourself
 
 ```bash
-git clone https://github.com/stanislaw/vips-benchmarks
+git clone https://github.com/jcupitt/vips-benchmarks
 
 cd vips-benchmarks
 

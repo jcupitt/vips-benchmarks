@@ -9,7 +9,9 @@ convert --version
 # how large an image do you want to process? 
 # sample2.v is 290x442 pixels ... replicate this many times horizontally and 
 # vertically to get a highres image for the benchmark
-tile=10
+
+# much larger than this and im falls over with cache resources exhausted
+tile=5
 
 # make a dir for our temp files
 tmp=tmp
@@ -40,21 +42,26 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-# run three times, take the fastest real time
-function bestof3() {
-  prg=$*
+# run a command several times, return the fastest real time
 
-  t1=$($time -f %e $prg 2>&1)
-  t2=$($time -f %e $prg 2>&1)
-  t3=$($time -f %e $prg 2>&1)
+# sleep for two secs between runs to let the system settle -- after a run
+# there's a short period of disc chatter we want to avoid
 
-  if [[ $t2 < $t1 ]]; then
-	  t1=$t2
-  fi
-  if [[ $t3 < $t1 ]]; then
-	  t1=$t3
-  fi
-  echo $t1
+# check that services like tracker are not running
+
+besttime() {
+	cmd=$*
+
+	times=()
+	for i in {1..5}; do
+		sleep 2
+		times+=($($time -f %e $cmd 2>&1))
+	done
+
+	IFS=$'\n' times=($(sort -g <<<"${times[*]}"))
+	unset IFS
+
+	echo $times
 }
 
 # find peak RSS
@@ -71,8 +78,8 @@ function maxmem() {
 function benchmark() {
   prg=$1
   echo -n -e "$(basename $prg)\t"
-  echo -n -e "$(bestof3 $prg $tmp/t.tif $tmp/t2.tif)\t"
-  echo -n -e "$(bestof3 $prg $tmp/t.jpg $tmp/t2.jpg)\t"
+  echo -n -e "$(besttime $prg $tmp/t.tif $tmp/t2.tif)\t"
+  echo -n -e "$(besttime $prg $tmp/t.jpg $tmp/t2.jpg)\t"
 
   echo
 }
@@ -107,7 +114,7 @@ for prg in $programs; do
 done
 
 echo 
-echo real time in seconds, fastest of three runs
+echo real time in seconds, fastest of five runs
 echo -e "benchmark\ttiff\tjpeg"
 sort -g -k 2 $tmp/log 
 
