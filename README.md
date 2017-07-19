@@ -38,9 +38,9 @@ measuring memuse for ruby/rmagick.rb ... done
 
 real time in seconds, fastest of five runs
 benchmark	tiff	jpeg
-ruby-vips.rb	0.80	0.52	
-image-magick	1.17	1.73	
-rmagick.rb	1.37	1.62	
+ruby-vips.rb	0.67	0.54	
+image-magick	1.18	1.60	
+rmagick.rb	1.34	1.61	
 
 peak memory use in bytes
 benchmark	peak RSS
