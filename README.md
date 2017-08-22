@@ -10,15 +10,15 @@ Use](https://github.com/jcupitt/libvips/wiki/Speed-and-memory-use)
 for complete demonstration of performance and memory usage characteristics
 of VIPS library.
 
-Last update: July 19, 2017
+Last update: August 22, 2017
 
 ## Benchmarks
 
 ```bash
 $ ./runner 
-Linux mm-jcupitt5 4.10.0-28-generic #32-Ubuntu SMP Fri Jun 30 05:32:18 UTC 2017
-x86_64 x86_64 x86_64 GNU/Linux
-Ruby-vips 2.0.0 built against vips-8.5.7-Tue Jul 18 12:51:34 BST 2017
+Linux kiwi 4.10.0-32-generic #36-Ubuntu SMP Tue Aug 8 12:10:06 UTC 2017 x86_64
+x86_64 x86_64 GNU/Linux
+Ruby-vips 2.0.0 built against vips-8.6.0-Tue Aug 22 12:13:36 BST 2017
 Version: ImageMagick 6.9.7-4 Q16 x86_64 20170114 http://www.imagemagick.org
 Copyright: © 1999-2017 ImageMagick Studio LLC
 License: http://www.imagemagick.org/script/license.php
@@ -38,14 +38,14 @@ measuring memuse for ruby/rmagick.rb ... done
 
 real time in seconds, fastest of five runs
 benchmark	tiff	jpeg
-ruby-vips.rb	0.67	0.54	
-image-magick	1.18	1.60	
-rmagick.rb	1.34	1.61	
+ruby-vips.rb	0.85	0.78	
+image-magick	2.03	2.44	
+rmagick.rb	3.87	3.89	
 
 peak memory use in bytes
 benchmark	peak RSS
-ruby-vips.rb	62268
-rmagick.rb	787720
+ruby-vips.rb	43864
+rmagick.rb	788768
 ```
 
 ## Performance test design
