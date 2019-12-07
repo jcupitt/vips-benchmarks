@@ -4,7 +4,8 @@
 uname -a
 ./ruby/versions/ruby-vips.rb
 convert --version
-./ruby/versions/image_science.rb
+# imagescience appears to be broken on ubuntu 19.10, sadly
+# ./ruby/versions/image_science.rb
 
 # how large an image do you want to process? 
 # sample2.v is 290x442 pixels ... replicate this many times horizontally and 
