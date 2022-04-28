@@ -12,7 +12,8 @@ GEM
     ffi (1.11.3)
     free-image (0.8.1)
       ffi (>= 1.0.10)
-    git (1.5.0)
+    git (1.11.0)
+      rchardet (~> 1.8)
     github_api (0.10.1)
       addressable
       faraday (~> 0.8.1)
@@ -47,6 +48,7 @@ GEM
     public_suffix (4.0.1)
     rack (2.2.3)
     rake (13.0.1)
+    rchardet (1.8.0)
     rdoc (6.2.0)
     rmagick (4.0.0)
     ruby-vips (2.0.17)
